@@ -1,0 +1,35 @@
+Distributed Cache Benchmark Suite
+Java 21.0.7 | Threads per config: 8 | Ops per thread (measure): 20000
+Backing store: 2ms read / 4ms write (exponential distribution)
+Keyspace: 10000 keys | Zipf α=1.0
+
+=== LATENCY EXPERIMENTS ===
+[ 1/27] Local        × CacheAside     × Read-Heavy (90R/10W)   ... r-p50=0.00ms r-p99=6.26ms w-p50=2.76ms w-p99=20.02ms hit=0.789
+[ 2/27] Local        × CacheAside     × Write-Heavy (30R/70W)  ... r-p50=0.64ms r-p99=9.21ms w-p50=2.78ms w-p99=20.05ms hit=0.314
+[ 3/27] Local        × CacheAside     × Mixed (50R/50W)        ... r-p50=0.05ms r-p99=8.77ms w-p50=2.78ms w-p99=20.14ms hit=0.490
+[ 4/27] Local        × WriteThrough   × Read-Heavy (90R/10W)   ... r-p50=0.00ms r-p99=5.05ms w-p50=2.78ms w-p99=20.69ms hit=0.877
+[ 5/27] Local        × WriteThrough   × Write-Heavy (30R/70W)  ... r-p50=0.00ms r-p99=5.05ms w-p50=2.79ms w-p99=20.41ms hit=0.883
+[ 6/27] Local        × WriteThrough   × Mixed (50R/50W)        ... r-p50=0.00ms r-p99=5.29ms w-p50=2.95ms w-p99=21.35ms hit=0.883
+[ 7/27] Local        × WriteBack      × Read-Heavy (90R/10W)   ... r-p50=0.00ms r-p99=6.01ms w-p50=0.00ms w-p99=0.00ms hit=0.876
+[ 8/27] Local        × WriteBack      × Write-Heavy (30R/70W)  ... r-p50=0.00ms r-p99=6.01ms w-p50=0.00ms w-p99=17.29ms hit=0.883
+[ 9/27] Local        × WriteBack      × Mixed (50R/50W)        ... r-p50=0.00ms r-p99=5.01ms w-p50=0.00ms w-p99=0.00ms hit=0.883
+[10/27] Distributed  × CacheAside     × Read-Heavy (90R/10W)   ... SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+r-p50=0.12ms r-p99=5.33ms w-p50=2.90ms w-p99=20.14ms hit=0.876
+[11/27] Distributed  × CacheAside     × Write-Heavy (30R/70W)  ... r-p50=1.12ms r-p99=9.56ms w-p50=3.06ms w-p99=20.41ms hit=0.314
+[12/27] Distributed  × CacheAside     × Mixed (50R/50W)        ... r-p50=0.45ms r-p99=9.24ms w-p50=3.05ms w-p99=20.37ms hit=0.497
+[13/27] Distributed  × WriteThrough   × Read-Heavy (90R/10W)   ... r-p50=0.07ms r-p99=1.44ms w-p50=2.96ms w-p99=20.15ms hit=0.982
+[14/27] Distributed  × WriteThrough   × Write-Heavy (30R/70W)  ... r-p50=0.20ms r-p99=1.70ms w-p50=3.05ms w-p99=20.37ms hit=0.983
+[15/27] Distributed  × WriteThrough   × Mixed (50R/50W)        ... r-p50=0.16ms r-p99=1.90ms w-p50=2.99ms w-p99=20.53ms hit=0.982
+[16/27] Distributed  × WriteBack      × Read-Heavy (90R/10W)   ... r-p50=0.11ms r-p99=1.37ms w-p50=0.11ms w-p99=0.19ms hit=0.982
+[17/27] Distributed  × WriteBack      × Write-Heavy (30R/70W)  ... r-p50=0.14ms r-p99=1.56ms w-p50=0.14ms w-p99=15.34ms hit=0.983
+[18/27] Distributed  × WriteBack      × Mixed (50R/50W)        ... r-p50=0.12ms r-p99=1.48ms w-p50=0.12ms w-p99=0.27ms hit=0.982
+[19/27] Hybrid       × CacheAside     × Read-Heavy (90R/10W)   ... r-p50=0.00ms r-p99=5.57ms w-p50=3.04ms w-p99=20.41ms hit=0.801
+[20/27] Hybrid       × CacheAside     × Write-Heavy (30R/70W)  ... r-p50=1.09ms r-p99=10.16ms w-p50=3.03ms w-p99=20.50ms hit=0.313
+[21/27] Hybrid       × CacheAside     × Mixed (50R/50W)        ... r-p50=0.31ms r-p99=9.30ms w-p50=3.04ms w-p99=20.50ms hit=0.493
+[22/27] Hybrid       × WriteThrough   × Read-Heavy (90R/10W)   ... r-p50=0.00ms r-p99=1.69ms w-p50=3.04ms w-p99=20.63ms hit=0.889
+[23/27] Hybrid       × WriteThrough   × Write-Heavy (30R/70W)  ... r-p50=0.00ms r-p99=1.82ms w-p50=3.10ms w-p99=20.66ms hit=0.894
+[24/27] Hybrid       × WriteThrough   × Mixed (50R/50W)        ... r-p50=0.00ms r-p99=1.75ms w-p50=3.09ms w-p99=20.48ms hit=0.894
+[25/27] Hybrid       × WriteBack      × Read-Heavy (90R/10W)   ... r-p50=0.00ms r-p99=1.26ms w-p50=0.09ms w-p99=0.30ms hit=0.888
+[26/27] Hybrid       × WriteBack      × Write-Heavy (30R/70W)  ... 

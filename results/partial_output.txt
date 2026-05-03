@@ -1,0 +1,26 @@
+Distributed Cache Benchmark Suite
+Java 21.0.7 | Threads per config: 8 | Ops per thread (measure): 20000
+Backing store: 2ms read / 4ms write (exponential distribution)
+Keyspace: 10000 keys | Zipf α=1.0
+
+=== LATENCY EXPERIMENTS ===
+[ 1/27] Local        × CacheAside     × Read-Heavy (90R/10W)   ... r-p50=0.00ms r-p99=6.26ms w-p50=2.81ms w-p99=20.02ms hit=0.787
+[ 2/27] Local        × CacheAside     × Write-Heavy (30R/70W)  ... r-p50=0.65ms r-p99=9.42ms w-p50=2.79ms w-p99=20.00ms hit=0.312
+[ 3/27] Local        × CacheAside     × Mixed (50R/50W)        ... r-p50=0.04ms r-p99=8.77ms w-p50=2.75ms w-p99=20.02ms hit=0.489
+[ 4/27] Local        × WriteThrough   × Read-Heavy (90R/10W)   ... r-p50=0.00ms r-p99=5.06ms w-p50=2.76ms w-p99=20.02ms hit=0.876
+[ 5/27] Local        × WriteThrough   × Write-Heavy (30R/70W)  ... r-p50=0.00ms r-p99=5.03ms w-p50=2.76ms w-p99=20.04ms hit=0.885
+[ 6/27] Local        × WriteThrough   × Mixed (50R/50W)        ... r-p50=0.00ms r-p99=5.03ms w-p50=2.78ms w-p99=20.02ms hit=0.883
+[ 7/27] Local        × WriteBack      × Read-Heavy (90R/10W)   ... r-p50=0.00ms r-p99=5.12ms w-p50=0.00ms w-p99=0.00ms hit=0.876
+[ 8/27] Local        × WriteBack      × Write-Heavy (30R/70W)  ... r-p50=0.00ms r-p99=5.07ms w-p50=0.00ms w-p99=15.05ms hit=0.881
+[ 9/27] Local        × WriteBack      × Mixed (50R/50W)        ... r-p50=0.00ms r-p99=5.01ms w-p50=0.00ms w-p99=0.00ms hit=0.882
+[10/27] Distributed  × CacheAside     × Read-Heavy (90R/10W)   ... SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+r-p50=0.12ms r-p99=5.31ms w-p50=2.89ms w-p99=20.41ms hit=0.877
+[11/27] Distributed  × CacheAside     × Write-Heavy (30R/70W)  ... r-p50=1.18ms r-p99=9.70ms w-p50=3.06ms w-p99=20.38ms hit=0.311
+[12/27] Distributed  × CacheAside     × Mixed (50R/50W)        ... r-p50=0.44ms r-p99=9.26ms w-p50=3.05ms w-p99=20.46ms hit=0.498
+[13/27] Distributed  × WriteThrough   × Read-Heavy (90R/10W)   ... r-p50=0.07ms r-p99=1.44ms w-p50=2.90ms w-p99=20.61ms hit=0.982
+[14/27] Distributed  × WriteThrough   × Write-Heavy (30R/70W)  ... r-p50=0.27ms r-p99=1.85ms w-p50=3.07ms w-p99=20.37ms hit=0.983
+[15/27] Distributed  × WriteThrough   × Mixed (50R/50W)        ... r-p50=0.23ms r-p99=2.05ms w-p50=3.03ms w-p99=20.32ms hit=0.982
+[16/27] Distributed  × WriteBack      × Read-Heavy (90R/10W)   ... r-p50=0.11ms r-p99=1.43ms w-p50=0.11ms w-p99=0.19ms hit=0.982
+[17/27] Distributed  × WriteBack      × Write-Heavy (30R/70W)  ... 

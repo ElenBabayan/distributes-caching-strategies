@@ -1,0 +1,115 @@
+Distributed Cache Benchmark Suite
+Java 21.0.7 | Threads per config: 8 | Ops per thread (measure): 20000
+Backing store: 2ms read / 4ms write (exponential distribution)
+Keyspace: 10000 keys | Zipf α=1.0
+
+=== LATENCY EXPERIMENTS ===
+[ 1/27] Local        × CacheAside     × Read-Heavy (90R/10W)   ... r-p50=0.00ms r-p99=6.26ms w-p50=2.76ms w-p99=20.02ms hit=0.789
+[ 2/27] Local        × CacheAside     × Write-Heavy (30R/70W)  ... r-p50=0.64ms r-p99=9.21ms w-p50=2.78ms w-p99=20.05ms hit=0.314
+[ 3/27] Local        × CacheAside     × Mixed (50R/50W)        ... r-p50=0.05ms r-p99=8.77ms w-p50=2.78ms w-p99=20.14ms hit=0.490
+[ 4/27] Local        × WriteThrough   × Read-Heavy (90R/10W)   ... r-p50=0.00ms r-p99=5.05ms w-p50=2.78ms w-p99=20.69ms hit=0.877
+[ 5/27] Local        × WriteThrough   × Write-Heavy (30R/70W)  ... r-p50=0.00ms r-p99=5.05ms w-p50=2.79ms w-p99=20.41ms hit=0.883
+[ 6/27] Local        × WriteThrough   × Mixed (50R/50W)        ... r-p50=0.00ms r-p99=5.29ms w-p50=2.95ms w-p99=21.35ms hit=0.883
+[ 7/27] Local        × WriteBack      × Read-Heavy (90R/10W)   ... r-p50=0.00ms r-p99=6.01ms w-p50=0.00ms w-p99=0.00ms hit=0.876
+[ 8/27] Local        × WriteBack      × Write-Heavy (30R/70W)  ... r-p50=0.00ms r-p99=6.01ms w-p50=0.00ms w-p99=17.29ms hit=0.883
+[ 9/27] Local        × WriteBack      × Mixed (50R/50W)        ... r-p50=0.00ms r-p99=5.01ms w-p50=0.00ms w-p99=0.00ms hit=0.883
+[10/27] Distributed  × CacheAside     × Read-Heavy (90R/10W)   ... SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+r-p50=0.12ms r-p99=5.33ms w-p50=2.90ms w-p99=20.14ms hit=0.876
+[11/27] Distributed  × CacheAside     × Write-Heavy (30R/70W)  ... r-p50=1.12ms r-p99=9.56ms w-p50=3.06ms w-p99=20.41ms hit=0.314
+[12/27] Distributed  × CacheAside     × Mixed (50R/50W)        ... r-p50=0.45ms r-p99=9.24ms w-p50=3.05ms w-p99=20.37ms hit=0.497
+[13/27] Distributed  × WriteThrough   × Read-Heavy (90R/10W)   ... r-p50=0.07ms r-p99=1.44ms w-p50=2.96ms w-p99=20.15ms hit=0.982
+[14/27] Distributed  × WriteThrough   × Write-Heavy (30R/70W)  ... r-p50=0.20ms r-p99=1.70ms w-p50=3.05ms w-p99=20.37ms hit=0.983
+[15/27] Distributed  × WriteThrough   × Mixed (50R/50W)        ... r-p50=0.16ms r-p99=1.90ms w-p50=2.99ms w-p99=20.53ms hit=0.982
+[16/27] Distributed  × WriteBack      × Read-Heavy (90R/10W)   ... r-p50=0.11ms r-p99=1.37ms w-p50=0.11ms w-p99=0.19ms hit=0.982
+[17/27] Distributed  × WriteBack      × Write-Heavy (30R/70W)  ... r-p50=0.14ms r-p99=1.56ms w-p50=0.14ms w-p99=15.34ms hit=0.983
+[18/27] Distributed  × WriteBack      × Mixed (50R/50W)        ... r-p50=0.12ms r-p99=1.48ms w-p50=0.12ms w-p99=0.27ms hit=0.982
+[19/27] Hybrid       × CacheAside     × Read-Heavy (90R/10W)   ... r-p50=0.00ms r-p99=5.57ms w-p50=3.04ms w-p99=20.41ms hit=0.801
+[20/27] Hybrid       × CacheAside     × Write-Heavy (30R/70W)  ... r-p50=1.09ms r-p99=10.16ms w-p50=3.03ms w-p99=20.50ms hit=0.313
+[21/27] Hybrid       × CacheAside     × Mixed (50R/50W)        ... r-p50=0.31ms r-p99=9.30ms w-p50=3.04ms w-p99=20.50ms hit=0.493
+[22/27] Hybrid       × WriteThrough   × Read-Heavy (90R/10W)   ... r-p50=0.00ms r-p99=1.69ms w-p50=3.04ms w-p99=20.63ms hit=0.889
+[23/27] Hybrid       × WriteThrough   × Write-Heavy (30R/70W)  ... r-p50=0.00ms r-p99=1.82ms w-p50=3.10ms w-p99=20.66ms hit=0.894
+[24/27] Hybrid       × WriteThrough   × Mixed (50R/50W)        ... r-p50=0.00ms r-p99=1.75ms w-p50=3.09ms w-p99=20.48ms hit=0.894
+[25/27] Hybrid       × WriteBack      × Read-Heavy (90R/10W)   ... r-p50=0.00ms r-p99=1.26ms w-p50=0.09ms w-p99=0.30ms hit=0.888
+[26/27] Hybrid       × WriteBack      × Write-Heavy (30R/70W)  ... r-p50=0.00ms r-p99=1.45ms w-p50=0.15ms w-p99=15.44ms hit=0.894
+[27/27] Hybrid       × WriteBack      × Mixed (50R/50W)        ... r-p50=0.00ms r-p99=1.30ms w-p50=0.12ms w-p99=0.20ms hit=0.894
+
+Latency results written to results/latency.csv
+
+=== SCALABILITY EXPERIMENT ===
+  Scalability: Local         replicas=[1, 2, 4, 8, 16, 32]
+    n=1    hit=0.755  tps=   1456  p99=7.52ms
+    n=2    hit=0.723  tps=   2628  p99=6.93ms
+    n=4    hit=0.672  tps=   4667  p99=7.54ms
+    n=8    hit=0.621  tps=   8029  p99=7.54ms
+    n=16   hit=0.566  tps=  14399  p99=8.48ms
+    n=32   hit=0.494  tps=  25154  p99=8.49ms
+  Scalability: Distributed   replicas=[1, 2, 4, 8, 16, 32]
+    n=1    hit=0.755  tps=    941  p99=7.98ms
+    n=2    hit=0.822  tps=   2440  p99=8.01ms
+    n=4    hit=0.880  tps=   7666  p99=7.84ms
+    n=8    hit=0.931  tps=  22123  p99=8.01ms
+    n=16   hit=0.968  tps=  37545  p99=7.98ms
+    n=32   hit=0.990  tps=  47642  p99=8.21ms
+  Scalability: Hybrid        replicas=[1, 2, 4, 8, 16, 32]
+    n=1    hit=0.755  tps=   1156  p99=7.96ms
+    n=2    hit=0.768  tps=   2880  p99=8.13ms
+    n=4    hit=0.819  tps=   7679  p99=8.09ms
+    n=8    hit=0.886  tps=  24577  p99=8.69ms
+    n=16   hit=0.937  tps=  61212  p99=7.30ms
+    n=32   hit=0.969  tps=  74974  p99=7.70ms
+Scalability results written to results/scalability.csv
+
+=== LATENCY SUMMARY TABLE ===
+Topology       WritePolicy    Workload                 r-p50ms  r-p95ms  r-p99ms   w-p50ms  w-p95ms  w-p99ms      tps     hit
+----------------------------------------------------------------------------------------------------------------------------------
+Local          CacheAside     Read-Heavy (90R/10W)       0.000    2.888    6.263     2.765   13.222   20.021     9333   0.789
+Local          CacheAside     Write-Heavy (30R/70W)      0.637    5.538    9.208     2.775   13.484   20.054     2328   0.314
+Local          CacheAside     Mixed (50R/50W)            0.047    5.018    8.765     2.783   13.476   20.136     2966   0.490
+Local          WriteThrough   Read-Heavy (90R/10W)       0.000    1.795    5.050     2.783   13.763   20.693    11473   0.877
+Local          WriteThrough   Write-Heavy (30R/70W)      0.001    1.682    5.046     2.789   13.533   20.414     2566   0.883
+Local          WriteThrough   Mixed (50R/50W)            0.001    1.747    5.292     2.951   13.804   21.348     3352   0.883
+Local          WriteBack      Read-Heavy (90R/10W)       0.000    1.801    6.013     0.000    0.001    0.003    28901   0.876
+Local          WriteBack      Write-Heavy (30R/70W)      0.000    1.719    6.013     0.000    8.790   17.285     5999   0.883
+Local          WriteBack      Mixed (50R/50W)            0.000    1.682    5.014     0.000    0.001    0.002    55404   0.883
+Distributed    CacheAside     Read-Heavy (90R/10W)       0.117    2.081    5.333     2.900   13.459   20.136     9823   0.876
+Distributed    CacheAside     Write-Heavy (30R/70W)      1.120    5.923    9.560     3.058   13.591   20.414     2130   0.314
+Distributed    CacheAside     Mixed (50R/50W)            0.449    5.497    9.241     3.052   13.640   20.365     2630   0.497
+Distributed    WriteThrough   Read-Heavy (90R/10W)       0.069    0.173    1.442     2.957   13.836   20.152    13795   0.982
+Distributed    WriteThrough   Write-Heavy (30R/70W)      0.202    0.417    1.700     3.045   13.615   20.365     2427   0.983
+Distributed    WriteThrough   Mixed (50R/50W)            0.157    0.348    1.901     2.994   13.894   20.529     3333   0.982
+Distributed    WriteBack      Read-Heavy (90R/10W)       0.113    0.166    1.371     0.113    0.160    0.191    51682   0.982
+Distributed    WriteBack      Write-Heavy (30R/70W)      0.142    0.374    1.562     0.144    8.057   15.335     6843   0.983
+Distributed    WriteBack      Mixed (50R/50W)            0.124    0.194    1.485     0.124    0.181    0.271    52466   0.982
+Hybrid         CacheAside     Read-Heavy (90R/10W)       0.000    2.265    5.566     3.039   13.910   20.414    10327   0.801
+Hybrid         CacheAside     Write-Heavy (30R/70W)      1.091    6.263   10.158     3.029   13.861   20.496     2128   0.313
+Hybrid         CacheAside     Mixed (50R/50W)            0.311    5.480    9.298     3.043   13.869   20.496     2705   0.493
+Hybrid         WriteThrough   Read-Heavy (90R/10W)       0.000    0.298    1.692     3.037   13.918   20.627    14985   0.889
+Hybrid         WriteThrough   Write-Heavy (30R/70W)      0.001    0.309    1.820     3.105   13.763   20.660     2435   0.894
+Hybrid         WriteThrough   Mixed (50R/50W)            0.001    0.297    1.747     3.090   13.664   20.480     3405   0.894
+Hybrid         WriteBack      Read-Heavy (90R/10W)       0.000    0.117    1.265     0.094    0.195    0.302   127692   0.888
+Hybrid         WriteBack      Write-Heavy (30R/70W)      0.000    0.186    1.451     0.153    8.057   15.442     6860   0.894
+Hybrid         WriteBack      Mixed (50R/50W)            0.000    0.135    1.297     0.122    0.168    0.195    85819   0.894
+
+=== SCALABILITY SUMMARY TABLE ===
+Topology       Replicas   HitRatio          TPS p99-read-ms
+------------------------------------------------------------
+Local                 1     0.7545       1456.4      7.516
+Local                 2     0.7227       2627.9      6.930
+Local                 4     0.6725       4666.6      7.537
+Local                 8     0.6208       8028.7      7.537
+Local                16     0.5662      14399.5      8.479
+Local                32     0.4940      25153.6      8.487
+Distributed           1     0.7545        940.9      7.979
+Distributed           2     0.8215       2439.8      8.012
+Distributed           4     0.8797       7666.1      7.836
+Distributed           8     0.9309      22123.1      8.008
+Distributed          16     0.9684      37544.7      7.979
+Distributed          32     0.9901      47642.0      8.212
+Hybrid                1     0.7545       1155.6      7.963
+Hybrid                2     0.7676       2880.3      8.126
+Hybrid                4     0.8186       7679.2      8.094
+Hybrid                8     0.8862      24577.4      8.692
+Hybrid               16     0.9374      61212.3      7.299
+Hybrid               32     0.9691      74974.2      7.705
